@@ -7,11 +7,11 @@ const UNIT: Record<string, string> = {
   "Atmospheric Pressure": "kPa",
   "Battery Percent": "%",
   "Battery Voltage": "mV",
-  "EC": "dS/m",
+  EC: "dS/m",
   "Logger Temperature": "°C",
   "Reference Pressure": "kPa",
   "Relative Humidity": "%",
-  "VPD": "kPa",
+  VPD: "kPa",
   "Water Level": "mm",
   "Water Temperature": "°C",
 };
@@ -53,7 +53,14 @@ export default function Page() {
         {data.cached ? "캐시값" : "ZENTRA에서 새로 가져옴"}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginTop: 12 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 12,
+          marginTop: 12,
+        }}
+      >
         {pick.map((p, i) => {
           const rows = p ? latestBy[p] ?? [] : [];
           const r0 = rows[0] ?? null;
